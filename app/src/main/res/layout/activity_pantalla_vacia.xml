@@ -10,9 +10,11 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="100sp"
+        android:autoSizeTextType="uniform"
         android:text="MANU está vacío"
         android:textAlignment="center"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="287dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

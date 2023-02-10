@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         binding.botonDado.setImageResource(R.drawable.img_logo_dado)
 
         binding.botonDado.setOnClickListener {
-            val intentPantallaEncontradaRandom = Intent(this, pantallaEncontradaRandom)
+            //Debería utilizar la variable pantallaEncontradaRandom pero para esta práctica
+            //Utilizo la PantallaObjeto
+            val intentPantallaEncontradaRandom = Intent(this, PantallaObjeto::class.java)
             startActivity(intentPantallaEncontradaRandom)
         }
 

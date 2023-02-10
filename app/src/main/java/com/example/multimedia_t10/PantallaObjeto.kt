@@ -1,10 +1,12 @@
 package com.example.multimedia_t10
 
+import android.app.Application
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.multimedia_t10.databinding.ActivityMainBinding
 import com.example.multimedia_t10.databinding.ActivityPantallaObjetoBinding
+import com.example.multimedia_t10.databinding.ActivityPantallaVaciaBinding
 
 class PantallaObjeto : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +18,16 @@ class PantallaObjeto : AppCompatActivity() {
 
         binding.imageView.setImageResource(R.drawable.img_objeto)
 
+        var objetoParaAñadirMochila1 = Objeto("nuevoObjeto", 3040, 50, 100)
+
+
+
+        binding.textView2.text = mochila1.listaObjetos.toString() + "\n" +
+                "Peso actual mochila: ${mochila1.peso} \n" +
+                "PESO MÁXIMO: ${mochila1.pesoMax}"
+
         binding.button.setOnClickListener {
+            comprobarPeso(mochila1, objetoParaAñadirMochila1, this)
             val intent = Intent(this, PantallaVacia::class.java)
             startActivity(intent)
         }
@@ -24,6 +35,10 @@ class PantallaObjeto : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+
+
+
 
     }
 }
