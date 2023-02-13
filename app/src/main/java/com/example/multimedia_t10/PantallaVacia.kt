@@ -1,7 +1,9 @@
 package com.example.multimedia_t10
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import com.example.multimedia_t10.databinding.ActivityPantallaVaciaBinding
 
 class PantallaVacia : AppCompatActivity() {
@@ -12,8 +14,13 @@ class PantallaVacia : AppCompatActivity() {
         val binding = ActivityPantallaVaciaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.textView.text = mochila1.listaObjetos.toString() + "\n" +
-                "Peso actual mochila: ${mochila1.peso} \n" +
-                "PESO MÁXIMO: ${mochila1.pesoMax}"
+        var imprimirTexto = intent.getStringExtra("textoSiguientePantalla")
+        binding.textView.text = imprimirTexto
+
+
+        binding.button3.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

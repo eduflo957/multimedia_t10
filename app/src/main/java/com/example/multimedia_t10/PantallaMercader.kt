@@ -3,6 +3,8 @@ package com.example.multimedia_t10
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.view.isGone
 import com.example.multimedia_t10.databinding.ActivityMainBinding
 import com.example.multimedia_t10.databinding.ActivityPantallaMercaderBinding
 
@@ -17,11 +19,19 @@ class PantallaMercader : AppCompatActivity() {
         binding.imageView.setImageResource(R.drawable.img_mercader)
 
         binding.button.setOnClickListener {
-            val intent = Intent(this, PantallaVacia::class.java)
-            startActivity(intent)
+            binding.linear1.visibility = View.GONE
+            binding.button4.setOnClickListener {
+                binding.imageView.setImageResource(R.drawable.img_cosa_hoz)
+            }
+
         }
         binding.button2.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.button6.setOnClickListener {
+            val intent = Intent(this, PantallaMercader::class.java)
             startActivity(intent)
         }
 

@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding.botonDado.setOnClickListener {
             //Debería utilizar la variable pantallaEncontradaRandom pero para esta práctica
             //Utilizo la PantallaObjeto
-            val intentPantallaEncontradaRandom = Intent(this, PantallaObjeto::class.java)
+            val intentPantallaEncontradaRandom = Intent(this, PantallaMercader::class.java)
             startActivity(intentPantallaEncontradaRandom)
         }
 

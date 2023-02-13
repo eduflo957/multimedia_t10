@@ -1,5 +1,6 @@
 package com.example.multimedia_t10
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import com.example.multimedia_t10.databinding.ActivityPantallaObjetoBinding
 import com.example.multimedia_t10.databinding.ActivityPantallaVaciaBinding
 
 class PantallaObjeto : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pantalla_objeto)
@@ -18,9 +20,7 @@ class PantallaObjeto : AppCompatActivity() {
 
         binding.imageView.setImageResource(R.drawable.img_objeto)
 
-        var objetoParaAñadirMochila1 = Objeto("nuevoObjeto", 3040, 50, 100)
-
-
+        var objetoParaAñadirMochila1 = Objeto("nuevoObjeto", 300, 50, 100)
 
         binding.textView2.text = mochila1.listaObjetos.toString() + "\n" +
                 "Peso actual mochila: ${mochila1.peso} \n" +
@@ -29,8 +29,13 @@ class PantallaObjeto : AppCompatActivity() {
         binding.button.setOnClickListener {
             comprobarPeso(mochila1, objetoParaAñadirMochila1, this)
             val intent = Intent(this, PantallaVacia::class.java)
+            intent.putExtra("textoSiguientePantalla",
+                mochila1.listaObjetos.toString() + "\n" +
+                        "Peso actual mochila: ${mochila1.peso} \n" +
+                        "PESO MÁXIMO: ${mochila1.pesoMax}")
             startActivity(intent)
         }
+
         binding.button2.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
